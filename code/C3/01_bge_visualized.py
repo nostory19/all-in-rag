@@ -6,8 +6,10 @@ model = Visualized_BGE(model_name_bge="BAAI/bge-base-en-v1.5",
 model.eval()
 
 with torch.no_grad():
-    text_emb = model.encode(text="datawhale开源组织的logo")
+    
+    text_emb = model.encode(text="blue whale") # datawhale开源组织的logo
     img_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png")
+    # text="datawhale开源组织的logo" 图文结合1vs纯文本
     multi_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png", text="datawhale开源组织的logo")
     img_emb_2 = model.encode(image="../../data/C3/imgs/datawhale02.png")
     multi_emb_2 = model.encode(image="../../data/C3/imgs/datawhale02.png", text="datawhale开源组织的logo")

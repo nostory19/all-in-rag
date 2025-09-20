@@ -6,7 +6,8 @@ from langchain_core.documents import Document
 texts = [
     "张三是法外狂徒",
     "FAISS是一个用于高效相似性搜索和密集向量聚类的库。",
-    "LangChain是一个用于开发由语言模型驱动的应用程序的框架。"
+    "LangChain是一个用于开发由语言模型驱动的应用程序的框架。",
+    "FAISS的全名是(Facebook AI Similarity Search) ，是一个由 Facebook AI Research 开发的高性能库。"
 ]
 docs = [Document(page_content=t) for t in texts]
 embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
@@ -28,7 +29,7 @@ loaded_vectorstore = FAISS.load_local(
 )
 
 # 执行相似性搜索
-query = "FAISS是做什么的？"
+query = "FAISS的全名？" # FAISS是做什么的？
 results = loaded_vectorstore.similarity_search(query, k=1)
 
 print(f"\n查询: '{query}'")
